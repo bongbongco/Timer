@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import { View, Text, StyleSheet, StatusBar } from 'react-native';
+import Button from '../Button';
 
 
-class Timer extends Component{
+export default class Timer extends Component{
     render() {
         return (
             <View style={styles.container}>
@@ -11,7 +12,8 @@ class Timer extends Component{
                     <Text style={styles.time}>25:00</Text>
                 </View>
                 <View style={styles.lower}>
-                    <Text>Button Here!</Text>
+                    <Button iconName='play-circle' onPress={() => alert('play work')}/>
+                    <Button iconName='stop-circle' onPress={() => alert('stop work')}/>
                 </View>
             </View>
         );
@@ -31,7 +33,8 @@ const styles = StyleSheet.create({
     lower: {
         flex:1,
         justifyContent:'center',
-        alignItems:'center'
+        alignItems:'center',
+        
     },
     time: {
         color:'white',
@@ -39,5 +42,3 @@ const styles = StyleSheet.create({
         fontWeight:'100'
     }
 });
-
-export default Timer;
