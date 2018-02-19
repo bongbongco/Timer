@@ -4,7 +4,7 @@ import { TouchableOpacity } from 'react-native';
 import { FontAwesome } from '@expo/vector-icons';
 
 
-export default function Button({iconName, onPress}){
+function Button({iconName, onPress}){
     return (
         <TouchableOpacity onPress={onPress}>
             <FontAwesome name={iconName} size={80} color='white' />
@@ -16,3 +16,5 @@ Button.propType = {
     iconName: PropTypes.string.isRequired,
     onPress: PropTypes.func.isRequired
 };
+
+export default Button;
