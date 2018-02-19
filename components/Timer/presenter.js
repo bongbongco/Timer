@@ -4,6 +4,20 @@ import Button from '../Button';
 
 
 class Timer extends Component{
+    componentWillReceiveProps(nextProps) {
+        const currentProps = this.props;
+        if (!currentProps.isPlaying && nextProps.isPlaying) {
+            const timerInterval = setInterval(() => {
+                currentProps.addSecond()
+            }, 1000);
+            this.setState({
+                timerInterval
+            });
+        } else if (currentProps.isPlaying && !nextProps.isPlaying) {
+            clearInterval(this.state.timerInterval);
+        }
+    }
+
     render() {
         console.log(this.props);
         const { 
@@ -11,7 +25,8 @@ class Timer extends Component{
             elapsedTime, 
             timerDuration,
             startTimer,
-            restartTimer 
+            restartTimer,
+            addSecond
         } = this.props
 
         return (

@@ -61,7 +61,7 @@ function applyRestartTimer(state){
     return {
         ...state,
         isPlaying:false,
-        elapsedTime:0
+        elapsedTime: 0
     };
 }
 
@@ -69,7 +69,7 @@ function applyAddSecond(state){
     if(state.elapsedTime < TIMER_DURATION){
         return {
             ...state,
-            elapsedTime: elapsedTime + 1
+            elapsedTime: state.elapsedTime + 1
         };
     }
     else {
